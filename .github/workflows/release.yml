@@ -29,7 +29,9 @@ permissions:
 # the published package's Cargo.toml (this is the default behaviour of cargo-release).
 # In the future this may be made more robust/configurable.
 on:
-  workflow_dispatch:    
+  push:
+    tags:
+      - v[0-9]+.*    
 
 env:
   ALL_CARGO_DIST_TARGET_ARGS: --target=x86_64-unknown-linux-gnu --target=x86_64-apple-darwin --target=x86_64-pc-windows-msvc 
